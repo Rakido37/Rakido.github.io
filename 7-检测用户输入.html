@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>检测用户输入</title>
+    <style>
+        .bg{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<form action="1.php">
+    <input type="text" name="name" id="name"> <br>
+    <input type="password" name="pwd" id="pwd"> <br>
+    <input type="submit" value="登 录" id="btnLogin">
+</form>
+<script>
+    //检测用户输入的 用户名是否为 3-6位，密码是否为6-8位，如果不满足则要求高亮，
+    //1.给登陆按钮注册事件
+    var btnLogin = document.getElementById('btnLogin');
+    btnLogin.onclick = function (){
+        //获取输入用户名的输入文本
+        //2.检测用户名是否为3-6位不满足高亮显示
+        var txtName = document.getElementById('name');
+        if( txtName.value.length < 3 || txtName.value.length > 6 ) {
+            //文本框高亮显示
+            txtName.className = 'bg';
+            return false;
+        }else{
+            txtName.className = '';
+        }
+        var txtPwd = document.getElementById('pwd');
+        if( txtPwd.value.length < 6 || txtPwd.value.length > 8 ) {
+            //文本框高亮显示
+            txtPwd.className = 'bg';
+            return false;
+        }else{
+            txtPwd.className = '';
+        }
+    }
+    
+</script>
+</body>
+</html>
